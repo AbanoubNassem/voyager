@@ -114,6 +114,8 @@ trait BreadRelationshipParser
                 }
 
                 $bread_data = $dataType->browseRows->where('field', $field)->first();
+                if(!$bread_data)
+                	continue;
                 $relationData = json_decode($bread_data->details)->relationship;
 
                 if ($bread_data->type == 'select_multiple') {
